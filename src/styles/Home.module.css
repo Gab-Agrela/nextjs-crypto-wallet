@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h2 {
+  color: whitesmoke;
+  padding: 10px 0;
+}
+
+.container h4 {
+  color: #9e9e9e;
+  padding-bottom: 10px;
+}
+
+.green {
+  color: #7fc636 !important;
+}
+
+.red {
+  color: #e15241 !important;
+}

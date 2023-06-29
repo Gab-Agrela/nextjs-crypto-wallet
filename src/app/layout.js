@@ -1,7 +1,7 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
-import "../styles/globals.css";
+import "@/styles/globals.css";
 
 export const metadata = {
   title: "CryptoWallet",
@@ -9,10 +9,12 @@ export const metadata = {
 
 export default function Layout({ children }) {
   return (
-    <>
-      <Navbar />
-      <main className="main-container">{children}</main>
-      <Footer />
-    </>
+    <html lang="pt-BR">
+      <body className="main-container">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }
