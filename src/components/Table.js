@@ -1,5 +1,7 @@
-import styles from "@/styles/Table.module.css";
 import Image from "next/image";
+import Link from "next/link";
+
+import styles from "@/styles/Table.module.css";
 
 export default async function CoinsList() {
   const baseUrl = "https://api.coingecko.com/api/v3";
@@ -14,6 +16,7 @@ export default async function CoinsList() {
     const number = string.match(regExp)[1];
     return number;
   };
+
   return (
     <div className={styles.container}>
       <table className={styles.darkTable}>
@@ -32,19 +35,25 @@ export default async function CoinsList() {
           {data.map((coin, index) => (
             <tr key={index}>
               <td className={styles["light-text-color"]}>{index + 1}</td>
-              <td>
-                <div className={styles.image}>
-                  <Image
-                    src={coin.image}
-                    width={20}
-                    height={20}
-                    alt={coin.name}
-                  />
-                  <span>{coin.name}</span>
-                  <span className={styles["light-text-color"]}>
-                    {coin.symbol.toUpperCase()}
-                  </span>
-                </div>
+              <td className={styles.link}>
+                <Link href={`/coin/${coin.id}`} legacyBehavior>
+                  <a>
+                    <div className={styles.image}>
+                      <Image
+                        src={coin.image}
+                        width={20}
+                        height={20}
+                        alt={coin.name}
+                      />
+                      <div>
+                        <span>{coin.name}</span>
+                        <span className={styles["light-text-color"]}>
+                          {coin.symbol.toUpperCase()}
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
               </td>
               <td className={styles["light-text-color"]}>
                 {coin.current_price.toLocaleString("en-US", {

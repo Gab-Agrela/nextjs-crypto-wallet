@@ -11,8 +11,22 @@
   padding-left: 15px;
 }
 
-.image span {
+.image div:nth-child(2) {
+  margin-left: 10px;
+  border-bottom: 1px solid transparent;
+}
+
+.image div:nth-child(2):hover {
+  border-color: whitesmoke;
+}
+
+.image div:nth-child(2) span:nth-child(2) {
   padding-left: 10px;
+}
+
+.link a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .darkTable {
