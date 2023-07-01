@@ -9,6 +9,17 @@
   width: 50%;
 }
 
+.container span a {
+  text-decoration: none;
+  color: whitesmoke;
+  border-bottom: 2px solid transparent;
+}
+
+.container span a:hover{
+  border-color: whitesmoke;
+  cursor: pointer;
+}
+
 .logo h1 {
   margin-left: 10px;
 }
@@ -33,6 +44,7 @@
   margin-left: 5px;
   font-size: 17px;
   border-bottom: 2px solid transparent;
+  margin-left: 10px;
 }
 
 .links a:hover {

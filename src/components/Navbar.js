@@ -30,6 +30,12 @@ export default function Navbar() {
           <a>Sobre</a>
         </Link>
       </ul>
+      <span>
+        Data provided by{" "}
+        <a href="https://www.coingecko.com/en/api" target="_blank">
+          CoinGecko API
+        </a>
+      </span>
     </nav>
   );
 }
