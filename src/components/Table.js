@@ -3,14 +3,19 @@ import Link from "next/link";
 
 import styles from "@/styles/Table.module.css";
 
-export default async function CoinsList() {
+async function getData() {
   const baseUrl = "https://api.coingecko.com/api/v3";
   const endpoint =
     "/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en";
   const response = await fetch(`${baseUrl}${endpoint}`, {
-    next: { revalidate: 60 },
+    next: { revalidate: 300 },
   });
   const data = await response.json();
+  return data;
+}
+
+export default async function CoinsList() {
+  const data = await getData();
   const getCoinId = (string) => {
     const regExp = /\/(\d+)\//;
     const number = string.match(regExp)[1];
@@ -32,7 +37,7 @@ export default async function CoinsList() {
           </tr>
         </thead>
         <tbody>
-          {data.map((coin, index) => (
+          {data?.map((coin, index) => (
             <tr key={index}>
               <td className={styles["light-text-color"]}>{index + 1}</td>
               <td className={styles.link}>
@@ -56,7 +61,7 @@ export default async function CoinsList() {
                 </Link>
               </td>
               <td className={styles["light-text-color"]}>
-                {coin.current_price.toLocaleString("en-US", {
+                {Number(coin.current_price).toLocaleString("en-US", {
                   style: "currency",
                   currency: "USD",
                 })}
@@ -71,13 +76,13 @@ export default async function CoinsList() {
                 {coin.price_change_percentage_24h.toFixed(2)}%
               </td>
               <td className={styles["light-text-color"]}>
-                {coin.total_volume.toLocaleString("en-US", {
+                {Number(coin.total_volume).toLocaleString("en-US", {
                   style: "currency",
                   currency: "USD",
                 })}
               </td>
               <td className={styles["light-text-color"]}>
-                {coin.market_cap.toLocaleString("en-US", {
+                {Number(coin.market_cap).toLocaleString("en-US", {
                   style: "currency",
                   currency: "USD",
                 })}

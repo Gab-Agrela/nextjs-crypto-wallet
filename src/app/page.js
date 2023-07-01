@@ -1,13 +1,18 @@
 import Table from "@/components/Table";
 import styles from "@/styles/Home.module.css";
 
-export default async function Home() {
+async function getCoins() {
   const baseUrl = "https://api.coingecko.com/api/v3";
   const endpoint = "/global";
   const response = await fetch(`${baseUrl}${endpoint}`, {
     next: { revalidate: 60 },
   });
   const { data } = await response.json();
+  return data;
+}
+
+export default async function Home() {
+  const data = await getCoins();
   return (
     <div className={styles.container}>
       <h2>Preços das criptomoedas por ordem de capitalização de mercado</h2>

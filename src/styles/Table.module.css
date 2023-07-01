@@ -31,12 +31,10 @@
 
 .darkTable {
   background-color: #121212;
-  width: 60%;
   height: 200px;
   text-align: center;
   border-collapse: collapse;
-  width: fit-content;
-
+  width: 950px;
 }
 .darkTable td, .darkTable th {
   border-bottom: 1px solid #2f2f2f;

@@ -10,9 +10,9 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className="main-container">
+      <body className="body-container">
         <Navbar />
-        {children}
+        <main className="main-container">{children}</main>
         <Footer />
       </body>
     </html>
