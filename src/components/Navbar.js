@@ -7,8 +7,17 @@ export default function Navbar() {
   return (
     <nav className={styles.container}>
       <div className={styles.logo}>
-        <Image src="/images/doge.png" width={50} height={50} alt="DogeCoin" />
-        <h1>CryptoWallet</h1>
+        <Link href="/" legacyBehavior>
+          <a>
+            <Image
+              src="/images/doge.png"
+              width={50}
+              height={50}
+              alt="DogeCoin"
+            />
+            <h1>CryptoWallet</h1>
+          </a>
+        </Link>
       </div>
       <ul className={styles.links}>
         <Link href="/" legacyBehavior>

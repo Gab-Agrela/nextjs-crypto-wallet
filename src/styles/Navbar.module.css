@@ -9,14 +9,16 @@
   width: 50%;
 }
 
-.logo {
+.logo h1 {
+  margin-left: 10px;
+}
+
+.logo a {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.logo h1 {
-  margin-left: 10px;
+  text-decoration: none;
+  color: whitesmoke;
 }
 
 .links {
